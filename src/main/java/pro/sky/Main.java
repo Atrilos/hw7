@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.LinkedHashSet;
 import java.util.Objects;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Main {
 
@@ -78,5 +79,15 @@ public class Main {
                 set.add(s.charAt(i));
 
         return set.stream().map(Objects::toString).collect(Collectors.joining());
+    }
+
+    /**
+     * task6() with sorting
+     */
+    public static String task6_2(String s1, String s2) {
+        return Stream.of(
+                Arrays.stream(s1.split("")).toArray(String[]::new),
+                Arrays.stream(s2.split("")).toArray(String[]::new)
+        ).flatMap(Stream::of).sorted().collect(Collectors.joining());
     }
 }
