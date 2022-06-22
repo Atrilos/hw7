@@ -7,10 +7,6 @@ import java.util.stream.Collectors;
 
 public class Main {
 
-    public static void main(String[] args) {
-        System.out.println(task7("aabccddefgghiijjkk"));
-    }
-
     public static void task1() {
         String firstName = "Ivan";
         String middleName = "Ivanovich";
@@ -77,11 +73,9 @@ public class Main {
     public static String task7(String s) {
         LinkedHashSet<Character> set = new LinkedHashSet<>();
 
-        for (int i = 0; i < s.length(); i++) {
-            if (i != 0 && s.charAt(i - 1) == s.charAt(i)) {
+        for (int i = 0; i < s.length(); i++)
+            if (i != 0 && s.charAt(i - 1) == s.charAt(i))
                 set.add(s.charAt(i));
-            }
-        }
 
         return set.stream().map(Objects::toString).collect(Collectors.joining());
     }
